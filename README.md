@@ -29,7 +29,14 @@ swing图形界面：由于用这个写的图形界面非常丑，现在主流的
 CRUD操作，配置信息，配置信息初始化，报表生成，一对多关系，多对一关系 
 
 ## 数据库设计
-
+针对项目需求，我们要建立几张不同的表去记录我们需要的数据
+1. 首先我定义了一张Account表，用于记录用户的消费记录，消费记录中就包括用户的消费金额、消费的分类、消费的备注、消费日期
+![image](https://github.com/DHcurry/AccountBook/blob/master/img/db_account.png)
+2. 接着，为了能够规范用户的消费分类，我们就必须建立一张记录用户消费种类的表，以至于用户在写消费分类的时候就可以直接从这张表里选择，而不是随意定义
+![image](https://github.com/DHcurry/AccountBook/blob/master/img/db_category.png)
+3. 紧接着为了完成用户的导入导出操作，我们要让用户设置导入导出地址，这里就需要一张配置表。
+![image](https://github.com/DHcurry/AccountBook/blob/master/img/db_config.png)
+![image](https://github.com/DHcurry/AccountBook/blob/master/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9B%BE.png)
 
 ## 目录总览：
 
@@ -57,3 +64,4 @@ CRUD操作，配置信息，配置信息初始化，报表生成，一对多关�
 比如说我们把每条记录可以看成是一个对象。
 4. Service是什么
 5. 整个项目的流程是什么样子的
+![image](https://github.com/DHcurry/AccountBook/blob/master/img/%E7%BB%93%E6%9E%84%E5%9B%BE.png)
