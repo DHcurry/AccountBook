@@ -22,29 +22,43 @@ public class AccountDAO {
         return count;
     }
 
-    public void add(int cid, float amount, String note, Date date){
+    public static void add(Account account){
         Connection connection = DBUtil.getConnection();
         String sql = "INSERT INTO account (cid,amount,note,use_date) VALUES(?,?,?,?)";
         try(PreparedStatement ps = connection.prepareStatement(sql)){
-            ps.setInt(1, cid);
-            ps.setFloat(2, amount);
-            ps.setString(3, note);
-            ps.setDate(4, date);
+            ps.setInt(1, account.cid);
+            ps.setFloat(2, account.amount);
+            ps.setString(3, account.note);
+            ps.setDate(4, account.date);
             ps.execute();
         }catch (SQLException e ){
             e.printStackTrace();
         }
     }
 
-    public void delete(){
-
+    public static void delete(Account account){
+        Connection connection = DBUtil.getConnection();
+        String sql = "REMOVE FROM account WHERE id=?";
+        try(PreparedStatement ps = connection.prepareStatement(sql)){
+            ps.setInt(1, account.id);
+            ps.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
-    public void update(int id,int cid, float amount, String note, Date date){
-
+    public static void update(Account account){
+        Connection connection = DBUtil.getConnection();
+        String sql = "UPDATE account SET ";
+        try(PreparedStatement ps = connection.prepareStatement(sql)){
+            ps.setInt(1, account.id);
+            ps.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
-    public ArrayList<Account> search_all(){
+    public static ArrayList<Account> search_all(){
         Connection connection = DBUtil.getConnection();
         String sql = "SELECT * FROM account";
         ResultSet rs = null;
@@ -65,17 +79,10 @@ public class AccountDAO {
         }
         return  list;
     }
-
-
-//    public float search_Today(){
-//        Connection connection = DBUtil.getConnection();
-//        String sql = "SELECT amount FROM account WHERE use_date=";
-//        try(PreparedStatement s = connection.prepareStatement(sql);){
-//
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public int search_day(){
+        Connection connection = DBUtil.getConnection();
+        String sql =
+    }
     public static void main(String[] args) {
 //        Account account = new Account(1,1,100,"吃饭",Date.valueOf("2019-07-20"));
         AccountDAO accountDAO = new AccountDAO();

@@ -11,7 +11,9 @@ public class SpendPanel extends JPanel{
     public JPanel northofleft = new JPanel();
     public JPanel northofright = new JPanel();
     public JLabel day = new JLabel("今日消费");
+    public JLabel day_spend = new JLabel();
     public JLabel month = new JLabel("本月消费");
+    public JLabel mouth_spedn = new JLabel();
     public JLabel average = new JLabel("日均消费");
     public JLabel remain = new JLabel("本月剩余");
     public JLabel dailyuse = new JLabel("日均可用");
@@ -24,14 +26,12 @@ public class SpendPanel extends JPanel{
 //         上框架中，分为左框架和右框架
         north.setSize(650,400);
         north.setLayout(new BorderLayout());
-        northofleft.setLayout(new GridLayout(2,1));
+        northofleft.setLayout(new GridLayout(4,1));
         northofleft.add(day);
         northofleft.add(month);
-        northofleft.setBackground(Color.pink);
         northofleft.setPreferredSize(new Dimension(250,500));
         north.add(northofleft,BorderLayout.WEST);
         north.setPreferredSize(new Dimension(650,500));
-        northofright.setBackground(Color.yellow);
 
         south.setLayout(new GridLayout(1,4));
         south.add(average);
@@ -39,7 +39,6 @@ public class SpendPanel extends JPanel{
         south.add(dailyuse);
         south.add(day2end);
         south.setPreferredSize(new Dimension(650,300));
-        south.setBackground(Color.red);
 
         spendpanel.add(north, BorderLayout.CENTER);
         spendpanel.add(south, BorderLayout.SOUTH);
@@ -48,6 +47,9 @@ public class SpendPanel extends JPanel{
     private static  SpendPanel instance = new SpendPanel();
     public  static SpendPanel getInstance(){
         return  instance;
+    }
+    public void update(){
+
     }
 
     public static void main(String[] args) {

@@ -29,6 +29,8 @@ public class MenuListener implements ActionListener {
         }
         if(b == mp.note){
             mf.workplace.add(NotePanel.getInstance().notepanel,BorderLayout.EAST);
+            NotePanel notePanel = NotePanel.getInstance();
+            notePanel.update();
             mf.workplace.updateUI();
         }
 
